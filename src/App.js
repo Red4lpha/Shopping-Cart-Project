@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
@@ -5,13 +6,16 @@ import Shop from "./components/Shop";
 const { default: Navbar } = require("./components/Navbar");
 
 function App() {
+  const [items, setItems] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <BrowserRouter>
     <div className="container">
-      <Navbar />
+      <Navbar cartCount={cartCount}/>
       <Route exact path='/' component={Home} />
       <Route path='/shop' component={Shop} />
-      Hello
     </div>
     </BrowserRouter>
   );
