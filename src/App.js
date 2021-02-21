@@ -12,7 +12,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className="container">
+    <div className="">
       <Navbar cartCount={cartCount}/>
       <Route exact path='/' component={Home} />
       <Route path='/shop' component={Shop} />
