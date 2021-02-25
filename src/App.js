@@ -10,12 +10,21 @@ function App() {
   const [cartCount, setCartCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
 
+  const addCartItem = (cardData) => {
+    let newCartItems = [...cartItems];
+    newCartItems.push(cardData);
+    setCartItems(newCartItems);
+
+    setCartCount(prevState => prevState + 1);
+  };
+
   return (
     <BrowserRouter>
     <div className="">
-      <Navbar cartCount={cartCount}/>
+      <Navbar cartCount={cartItems.length}/>
       <Route exact path='/' component={Home} />
-      <Route path='/shop' component={Shop} />
+      <Route path='/shop' render={(props) => <Shop {...props} 
+      handleClick={addCartItem}/>}/>
     </div>
     </BrowserRouter>
   );
