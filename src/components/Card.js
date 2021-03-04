@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 
-const Card = ({item, handleClick}) => {
+const Card = ({item, index, handleClick}) => {
 
     function addToCart(){
-        handleClick(item);
+        handleClick(index);
     }
     return (
         <main className="center m-screen mx-5 my-5">
