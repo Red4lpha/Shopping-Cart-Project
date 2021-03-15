@@ -13,7 +13,7 @@ const Card = ({item, index, handleClick}) => {
                 <div className="text-black h-24 my-2 overflow-y-hidden">{item.description}</div>
                 <section className="flex flex-row flex-wrap">
                 <h3 className="py-3 pr-3 flex-auto font-extrabold text-2xl">${item.price}</h3>
-                    <button onClick={addToCart} className="bg-blue-700 text-white uppercase py-2 px-2 rounded-full flex-auto">Add to Cart</button>
+                    <button onClick={addToCart} className="bg-blue-700 hover:bg-blue-400 text-white uppercase py-2 px-2 rounded-full flex-auto">Add to Cart</button>
                 </section>   
             </div>
         </main>
