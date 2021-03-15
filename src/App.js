@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
+import Cart from "./components/Cart";
 
 const { default: Navbar } = require("./components/Navbar");
 
@@ -36,6 +37,8 @@ function App() {
       <Route exact path='/' component={Home} />
       <Route path='/shop' render={(props) => <Shop {...props} 
       handleClick={addCartItem}/>}/>
+      <Route path='/cart' render={(props) => <Cart  
+      cartItems={cartItems}/>}/>
     </div>
     </BrowserRouter>
   );
