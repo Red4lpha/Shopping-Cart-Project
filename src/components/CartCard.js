@@ -26,7 +26,7 @@ const CartCard = ({item, index, handleRemove, handleIncrement, handleDecrement})
                 </div>
                 <div className="flex flex-col justify-between ml-4 flex-grow">
                     <span className="text-blue-600 font-bold text-2x1">{name}</span>
-                    <span className="text-red-500 text-xs">Apple</span>
+                    {/* <span className="text-red-500 text-xs">Apple</span> */}
                     <div onClick={removeItem} className="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</div>
                 </div>
             </div>
