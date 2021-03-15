@@ -27,18 +27,37 @@ function App() {
 
   const removeCartItem = (cardIndex) => {
     let newCartItems = [...cartItems];
-    //const cardIndex = newCartItems.findIndex((e) => e.itemIndex === cardData);
-    //newCartItems.filter(e => e.itemIndex !== cardData);
     if(cardIndex > -1){
       newCartItems.splice(cardIndex, 1);
     }
     setCartItems(newCartItems);
   };
 
-  useEffect(() => {
+  const increment = (cardIndex)  => {
+    let newCartItems = [...cartItems];
+    let cardItem = newCartItems[cardIndex];
+    if (cardIndex > -1 && !(cardItem.quantity > 8) ){
+      cardItem.quantity++;
+      newCartItems[cardIndex] = {...newCartItems[cardIndex], cardItem}; 
+      setCartItems(newCartItems);
+    }
+  };
+
+  const decrement = (cardIndex)  => {
+    let newCartItems = [...cartItems];
+    let cardItem = newCartItems[cardIndex];
+    if (cardIndex > -1 && !(cardItem.quantity < 2) ){
+      cardItem.quantity--;
+      newCartItems[cardIndex] = {...newCartItems[cardIndex], cardItem}; 
+      setCartItems(newCartItems);
+    }
+  };
+
+
+/*   useEffect(() => {
     
     console.table(cartItems);
-  },[cartItems]);
+  },[cartItems]); */
 
   return (
     <BrowserRouter>
@@ -48,7 +67,8 @@ function App() {
       <Route path='/shop' render={(props) => <Shop {...props} 
       handleClick={addCartItem}/>}/>
       <Route path='/cart' render={(props) => <Cart  
-      cartItems={cartItems} handleClick={removeCartItem}/>}/>
+      cartItems={cartItems} handleRemove={removeCartItem} handleIncrement={increment}
+      handleDecrement={decrement}/>}/>
     </div>
     </BrowserRouter>
   );
