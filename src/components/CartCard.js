@@ -1,12 +1,16 @@
 import React from 'react';
 import ShopItems from './ShopItems';
 
-const CartCard = ({item}) => {
+const CartCard = ({item, index, handleClick}) => {
     let shopItem = ShopItems[item.itemIndex];
     let name = shopItem.name;
     let image = shopItem.image;
     let price = shopItem.price;
     let quantity = item.quantity;
+
+    function removeItem(){
+        handleClick(index);
+    };
 
     return (
         <article className="flex items-center hover:bg-white -mx-8 px-6 py-5">
@@ -17,7 +21,7 @@ const CartCard = ({item}) => {
                 <div className="flex flex-col justify-between ml-4 flex-grow">
                     <span className="text-blue-600 font-bold text-2x1">{name}</span>
                     <span className="text-red-500 text-xs">Apple</span>
-                    <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+                    <div onClick={removeItem} className="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</div>
                 </div>
             </div>
             <span className="text-blue-600 text-center w-1/5 font-bold text-1xl">${price}</span>

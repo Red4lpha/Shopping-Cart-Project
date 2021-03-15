@@ -1,7 +1,7 @@
 import React from 'react'
 import CartCard from './CartCard'
 
-const Cart = ({cartItems}) => {
+const Cart = (props) => {
     return (
         <div className="container mx-auto mt-10">
             <div className="flex shadow-md my-10">
@@ -17,8 +17,8 @@ const Cart = ({cartItems}) => {
                         <h3 className="font-extrabold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Subtotal</h3>
                     </div>
                     
-                    {cartItems.map((item) =>(
-                        <CartCard item={item} />        
+                    {props.cartItems.map((item, index) =>(
+                        <CartCard item={item} index={index} handleClick={props.handleClick} />        
                     ))
                     }
                     <a href="#" className="flex font-semibold text-indigo-600 text-sm mt-10">

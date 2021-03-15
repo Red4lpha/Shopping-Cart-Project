@@ -25,6 +25,16 @@ function App() {
     }
   };
 
+  const removeCartItem = (cardIndex) => {
+    let newCartItems = [...cartItems];
+    //const cardIndex = newCartItems.findIndex((e) => e.itemIndex === cardData);
+    //newCartItems.filter(e => e.itemIndex !== cardData);
+    if(cardIndex > -1){
+      newCartItems.splice(cardIndex, 1);
+    }
+    setCartItems(newCartItems);
+  };
+
   useEffect(() => {
     
     console.table(cartItems);
@@ -38,7 +48,7 @@ function App() {
       <Route path='/shop' render={(props) => <Shop {...props} 
       handleClick={addCartItem}/>}/>
       <Route path='/cart' render={(props) => <Cart  
-      cartItems={cartItems}/>}/>
+      cartItems={cartItems} handleClick={removeCartItem}/>}/>
     </div>
     </BrowserRouter>
   );
