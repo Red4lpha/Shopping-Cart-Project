@@ -48,7 +48,9 @@ const Cart = (props) => {
                 <div>
                 <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
                 <select className="block p-2 text-gray-600 w-full text-sm">
-                    <option>Standard shipping - $10.00</option>
+                    <option>Slow shipping - FREE</option>
+                    <option>Standard shipping - $5</option>
+                    <option>Express shipping - $20</option>
                 </select>
                 </div>
                 <div className="py-10">

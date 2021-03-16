@@ -3,11 +3,7 @@ import Card from './Card';
 import ShopItems from './ShopItems';
 
 const Shop = (props) => {
-    //console.log("Shop:");
-    //console.log(props);
-    const increment = () => {
-        props.handleClick();
-    }
+
     return (
         <main className="grid place-items-center bg-white">
             <h1 className="text-7xl">SHOP</h1>

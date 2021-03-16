@@ -24,9 +24,9 @@ const CartCard = ({item, index, handleRemove, handleIncrement, handleDecrement})
                 <div className="w-32 h-24">
                     <img className="" src={image} alt="" />
                 </div>
-                <div className="flex flex-col justify-between ml-4 flex-grow">
+                <div className="flex flex-col justify-around ml-4 flex-grow">
                     <span className="text-blue-600 font-bold text-2x1">{name}</span>
-                    {/* <span className="text-red-500 text-xs">Apple</span> */}
+                    {/* <span className="text-red-500 text-xs"></span> */}
                     <div onClick={removeItem} className="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</div>
                 </div>
             </div>
