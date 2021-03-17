@@ -6,7 +6,11 @@ import ShopItems from './ShopItems';
 const Cart = (props) => {
     let length = props.cartItems.length;
     const [totalCost, setTotalCost] = useState(0);
+    const [shipping, setShipping] = useState(0);
 
+    function handleChange(e) {
+        setShipping(e.target.value);
+    };
     useEffect(() => {
         let total = 0;
         props.cartItems.map(item => {
@@ -47,10 +51,11 @@ const Cart = (props) => {
                 </div>
                 <div>
                 <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-                <select className="block p-2 text-gray-600 w-full text-sm">
-                    <option>Slow shipping - FREE</option>
-                    <option>Standard shipping - $5</option>
-                    <option>Express shipping - $20</option>
+                <select value={shipping} onChange={handleChange}
+                className="block p-2 text-gray-600 w-full text-sm">
+                    <option value={0}>Slow shipping - FREE</option>
+                    <option value={5}>Standard shipping - $5</option>
+                    <option value={20}>Express shipping - $20</option>
                 </select>
                 </div>
                 <div className="py-10">
@@ -61,7 +66,7 @@ const Cart = (props) => {
                 <div className="border-t mt-8">
                     <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                         <span>Total cost</span>
-                        <span>$600</span>
+                    <span>${+totalCost + +shipping}</span>
                     </div>
                     <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
                 </div>
