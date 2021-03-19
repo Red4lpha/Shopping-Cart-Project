@@ -21,8 +21,8 @@ const CartCard = ({item, index, handleRemove, handleIncrement, handleDecrement})
     return (
         <article className="flex items-center hover:bg-white -mx-8 px-6 py-5">
             <div className="flex w-2/5"> 
-                <div className="w-32 h-24">
-                    <img className="" src={image} alt="" />
+                <div className="flex-none w-44 h-auto object-cover border-gray-900 border-2">
+                    <img className="w-full h-full" src={image} alt="" />
                 </div>
                 <div className="flex flex-col justify-around ml-4 flex-grow">
                     <span className="text-blue-600 font-bold text-2x1">{name}</span>
