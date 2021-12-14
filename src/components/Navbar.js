@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 const Navbar = ({cartCount}) => {
     return (
         <Fragment>
-            <nav className="bg-gray-500">
+            <nav className="bg-gray-200 shadow-md">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between">
                 <div className="flex space-x-4">
@@ -22,9 +22,9 @@ const Navbar = ({cartCount}) => {
                     </div>
             
                 {/*  <!-- primary nav --> */}
-                    <div className="hidden md:flex items-center space-x-1 text-2xl mx-2">
-                    <NavLink to='/' className="mx-6 border-gray-500 py-1 px-1 text-gray-200 hover:text-gray-900 border-b-2 hover:border-blue-600">Home</NavLink>
-                    <NavLink to="/shop" className="mx-6 border-gray-500  py-1 px-1 text-gray-200 hover:text-gray-900 border-b-2 hover:border-blue-600">Shop</NavLink>
+                    <div className="hidden md:flex items-center space-x-1 text-2xl mx-2 text-blue-600">
+                    <NavLink to='/' className="mx-6 border-gray-500 py-1 px-1 hover:text-gray-900 border-b-2 hover:border-blue-600">Home</NavLink>
+                    <NavLink to="/shop" className="mx-6 border-gray-500  py-1 px-1  hover:text-gray-900 border-b-2 hover:border-blue-600">Shop</NavLink>
                     </div>
                 </div>
             

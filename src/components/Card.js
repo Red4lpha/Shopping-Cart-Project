@@ -6,7 +6,7 @@ const Card = ({item, index, handleClick}) => {
         handleClick(index);
     }
     return (
-        <main className="center m-screen mx-4 my-4">
+        <article className="center m-screen mx-4 my-4">
             <div className="flex flex-col bg-gray-200 p-4 border-1 border-blue-900 rounded text-blue-600 shadow-lg w-80">
                 <h2 className="text-2xl font-bold">{item.name}</h2>
                 <img src={item.image} className="h-48 border-gray-900 border-2"/>
@@ -16,7 +16,7 @@ const Card = ({item, index, handleClick}) => {
                     <button onClick={addToCart} className="bg-blue-700 hover:bg-blue-400 text-white uppercase py-2 px-2 rounded-full flex-auto">Add to Cart</button>
                 </section>   
             </div>
-        </main>
+        </article>
     )
 };
 
