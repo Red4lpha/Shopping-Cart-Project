@@ -21,9 +21,9 @@ const Cart = (props) => {
         setTotalCost(total);
     },[props.cartItems]);
     return (
-        <div className="container mx-auto mt-10">
-            <div className="flex shadow-md my-10">
-                <section className="w-3/4 bg-gray-200 px-10 py-10">
+        <main className="container mx-auto mt-10">
+            <div className="lg:flex shadow-md my-10">
+                <section className="lg:w-3/4 bg-gray-200 px-10 py-10">
                     <header className="flex justify-between border-b border-white pb-8">
                         <h1 className="font-semibold text-2xl">Shopping Cart</h1>
                         <h2 className="font-semibold text-2xl">{length} Items</h2>
@@ -49,7 +49,7 @@ const Cart = (props) => {
                         Continue Shopping
                     </NavLink>
                 </section>
-            <aside id="summary" className="bg-gray-300 w-1/4 px-8 py-10">
+            <aside id="summary" className="bg-gray-300 lg:w-1/4 px-8 py-10">
                 <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
                 <div className="flex justify-between mt-10 mb-5">
                     <span className="font-semibold text-sm uppercase">Items {length}</span>
@@ -78,7 +78,7 @@ const Cart = (props) => {
                 </div>
             </aside>
         </div>
-    </div>
+    </main>
     )
 }
 
