@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
@@ -53,15 +53,8 @@ function App() {
     }
   };
 
-
-/*   useEffect(() => {
-    
-    console.table(cartItems);
-  },[cartItems]); */
-
   return (
     <BrowserRouter>
-    <div className="">
       <Navbar cartCount={cartItems.length}/>
       <Route exact path='/' component={Home} />
       <Route path='/shop' render={(props) => <Shop {...props} 
@@ -69,7 +62,6 @@ function App() {
       <Route path='/cart' render={(props) => <Cart  
       cartItems={cartItems} handleRemove={removeCartItem} handleIncrement={increment}
       handleDecrement={decrement}/>}/>
-    </div>
     </BrowserRouter>
   );
 }
