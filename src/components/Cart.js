@@ -14,7 +14,7 @@ const Cart = (props) => {
     };
     useEffect(() => {
         let total = 0;
-        props.cartItems.map(item => {
+        props.cartItems.forEach(item => {
             total += ShopItems[item.itemIndex].price * item.quantity;
             //console.log(total);
         });

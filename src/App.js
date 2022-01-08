@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
 import Cart from "./components/Cart";
 
 const { default: Navbar } = require("./components/Navbar");
+
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -53,15 +54,23 @@ function App() {
     }
   };
 
+  const openMobileMenu = () => {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    mobileMenu.classList.toggle('hidden');
+  }
+
   return (
-    <BrowserRouter>
-      <Navbar cartCount={cartItems.length}/>
-      <Route exact path='/' component={Home} />
-      <Route path='/shop' render={(props) => <Shop {...props} 
-      handleClick={addCartItem}/>}/>
-      <Route path='/cart' render={(props) => <Cart  
-      cartItems={cartItems} handleRemove={removeCartItem} handleIncrement={increment}
-      handleDecrement={decrement}/>}/>
+    <BrowserRouter basename="/Shopping-Cart-Project/">
+      <Navbar cartCount={cartItems.length} handleMobileClick={openMobileMenu}/>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        {/* <Route exact path='/' component={Home} /> */}
+        <Route path='/shop' render={(props) => <Shop {...props} 
+        handleClick={addCartItem}/>}/>
+        <Route path='/cart' render={(props) => <Cart  
+        cartItems={cartItems} handleRemove={removeCartItem} handleIncrement={increment}
+        handleDecrement={decrement}/>}/>
+      </Switch>
     </BrowserRouter>
   );
 }
