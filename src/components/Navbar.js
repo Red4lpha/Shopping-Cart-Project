@@ -54,9 +54,12 @@ const Navbar = ({cartCount, handleMobileClick}) => {
                 
                 {/*  <!-- mobile menu --> */}
                 <div className="mobile-menu hidden absolute block bg-gray-200 w-full md:hidden">
-                    <NavLink to='/' className="block py-8 px-4 text-4xl hover:bg-gray-100">Home</NavLink>
-                    <NavLink to="/shop" className="block py-8 px-4 text-4xl hover:bg-gray-100">Shop</NavLink>
-                    <NavLink to="/cart" className="flex items-center block py-8 px-4 text-4xl hover:bg-gray-100">
+                    <NavLink to='/' onClick={handleMobileClick} 
+										className="block py-8 px-4 text-4xl hover:bg-gray-100">Home</NavLink>
+                    <NavLink to="/shop" onClick={handleMobileClick} 
+										className="block py-8 px-4 text-4xl hover:bg-gray-100">Shop</NavLink>
+                    <NavLink to="/cart" onClick={handleMobileClick} 
+										className="flex items-center block py-8 px-4 text-4xl hover:bg-gray-100">
                       Cart
 											<div className="flex items-center space-x-1 px-2">
 												<div className="flex items-center py-2 px-3 bg-blue-400 hover:bg-blue-300 text-blue-900 hover:text-blue-800 rounded transition duration-300">
