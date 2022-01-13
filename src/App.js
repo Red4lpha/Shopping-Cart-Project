@@ -13,43 +13,43 @@ function App() {
   const addCartItem = (cardData) => {
     let newCartItems = [...cartItems];
     let i = newCartItems.length;
-   
+
     const cardIndex = newCartItems.findIndex((e) => e.itemIndex === cardData);
-     //checks to see if the cardData is already in the array
-    if (cardIndex !== -1){
-      newCartItems[cardIndex] = {...newCartItems[cardIndex], itemIndex: cardData, quantity: newCartItems[cardIndex].quantity+1}; 
+    //checks to see if the cardData is already in the array
+    if (cardIndex !== -1) {
+      newCartItems[cardIndex] = { ...newCartItems[cardIndex], itemIndex: cardData, quantity: newCartItems[cardIndex].quantity + 1 };
       setCartItems(newCartItems);
     }
-    else{
-    newCartItems[i] = {...newCartItems[i], itemIndex: cardData, quantity: 1}; 
-    setCartItems(newCartItems);
+    else {
+      newCartItems[i] = { ...newCartItems[i], itemIndex: cardData, quantity: 1 };
+      setCartItems(newCartItems);
     }
   };
 
   const removeCartItem = (cardIndex) => {
     let newCartItems = [...cartItems];
-    if(cardIndex > -1){
+    if (cardIndex > -1) {
       newCartItems.splice(cardIndex, 1);
     }
     setCartItems(newCartItems);
   };
 
-  const increment = (cardIndex)  => {
+  const increment = (cardIndex) => {
     let newCartItems = [...cartItems];
     let cardItem = newCartItems[cardIndex];
-    if (cardIndex > -1 && !(cardItem.quantity > 8) ){
+    if (cardIndex > -1 && !(cardItem.quantity > 8)) {
       cardItem.quantity++;
-      newCartItems[cardIndex] = {...newCartItems[cardIndex], cardItem}; 
+      newCartItems[cardIndex] = { ...newCartItems[cardIndex], cardItem };
       setCartItems(newCartItems);
     }
   };
 
-  const decrement = (cardIndex)  => {
+  const decrement = (cardIndex) => {
     let newCartItems = [...cartItems];
     let cardItem = newCartItems[cardIndex];
-    if (cardIndex > -1 && !(cardItem.quantity < 2) ){
+    if (cardIndex > -1 && !(cardItem.quantity < 2)) {
       cardItem.quantity--;
-      newCartItems[cardIndex] = {...newCartItems[cardIndex], cardItem}; 
+      newCartItems[cardIndex] = { ...newCartItems[cardIndex], cardItem };
       setCartItems(newCartItems);
     }
   };
@@ -61,15 +61,14 @@ function App() {
 
   return (
     <BrowserRouter basename="/Shopping-Cart-Project/">
-      <Navbar cartCount={cartItems.length} handleMobileClick={openMobileMenu}/>
+      <Navbar cartCount={cartItems.length} handleMobileClick={openMobileMenu} />
       <Switch>
         <Route exact path='/' component={Home} />
-        {/* <Route exact path='/' component={Home} /> */}
-        <Route path='/shop' render={(props) => <Shop {...props} 
-        handleClick={addCartItem}/>}/>
-        <Route path='/cart' render={(props) => <Cart  
-        cartItems={cartItems} handleRemove={removeCartItem} handleIncrement={increment}
-        handleDecrement={decrement}/>}/>
+        <Route path='/shop' render={(props) => <Shop {...props}
+          handleClick={addCartItem} />} />
+        <Route path='/cart' render={(props) => <Cart
+          cartItems={cartItems} handleRemove={removeCartItem} handleIncrement={increment}
+          handleDecrement={decrement} />} />
       </Switch>
     </BrowserRouter>
   );
