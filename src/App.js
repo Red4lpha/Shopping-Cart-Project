@@ -63,7 +63,7 @@ function App() {
     <BrowserRouter basename="/Shopping-Cart-Project/">
       <Navbar cartCount={cartItems.length} handleMobileClick={openMobileMenu} />
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={Shop} />
         <Route path='/shop' render={(props) => <Shop {...props}
           handleClick={addCartItem} />} />
         <Route path='/cart' render={(props) => <Cart

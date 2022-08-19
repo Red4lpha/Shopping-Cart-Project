@@ -10,20 +10,16 @@ const Navbar = ({ cartCount, handleMobileClick }) => {
           <div className="flex justify-between">
             <div className="flex space-x-4">
               <div>
-                <Link to='/' className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
-                  {/* <svg className="h-6 w-6 mr-1 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin='round' 
-                            strokeWidth={2} d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8' />
-                            </svg> */}
+                <Link to='/' className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">        
                   <img src="https://cdn.pixabay.com/photo/2012/04/05/01/01/athletic-shoes-25493_960_720.png"
                     className="h-10 w-10 mr-2" alt="Shoe Store Logo" />
-                  <span className="font-bold text-3xl">Storage Cart App</span>
+                  <span className="font-bold text-3xl">Retro Kicks</span>
                 </Link>
               </div>
 
               {/*  <!-- primary nav --> */}
               <div className="hidden md:flex items-center space-x-1 text-2xl mx-2 text-blue-600">
-                <NavLink to='/' className="mx-6 border-gray-500 py-1 px-1 hover:text-gray-900 border-b-2 hover:border-blue-600">Home</NavLink>
+                {/* <NavLink to='/' className="mx-6 border-gray-500 py-1 px-1 hover:text-gray-900 border-b-2 hover:border-blue-600">Home</NavLink> */}
                 <NavLink to="/shop" className="mx-6 border-gray-500  py-1 px-1  hover:text-gray-900 border-b-2 hover:border-blue-600">Shop</NavLink>
               </div>
             </div>
@@ -54,8 +50,8 @@ const Navbar = ({ cartCount, handleMobileClick }) => {
 
         {/*  <!-- mobile menu --> */}
         <div className="mobile-menu hidden absolute block bg-gray-200 w-full md:hidden">
-          <NavLink to='/' onClick={handleMobileClick}
-            className="block py-8 px-4 text-4xl hover:bg-gray-100">Home</NavLink>
+          {/* <NavLink to='/' onClick={handleMobileClick}
+            className="block py-8 px-4 text-4xl hover:bg-gray-100">Home</NavLink> */}
           <NavLink to="/shop" onClick={handleMobileClick}
             className="block py-8 px-4 text-4xl hover:bg-gray-100">Shop</NavLink>
           <NavLink to="/cart" onClick={handleMobileClick}
