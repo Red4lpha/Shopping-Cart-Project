@@ -10,18 +10,18 @@ const { default: Navbar } = require("./components/Navbar");
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  const addCartItem = (cardData) => {
+  const addCartItem = (index) => {
     let newCartItems = [...cartItems];
     let i = newCartItems.length;
 
-    const cardIndex = newCartItems.findIndex((e) => e.itemIndex === cardData);
+    const cardIndex = newCartItems.findIndex((e) => e.itemIndex === index);
     //checks to see if the cardData is already in the array
     if (cardIndex !== -1) {
-      newCartItems[cardIndex] = { ...newCartItems[cardIndex], itemIndex: cardData, quantity: newCartItems[cardIndex].quantity + 1 };
+      newCartItems[cardIndex] = { ...newCartItems[cardIndex], itemIndex: index, quantity: newCartItems[cardIndex].quantity + 1 };
       setCartItems(newCartItems);
     }
     else {
-      newCartItems[i] = { ...newCartItems[i], itemIndex: cardData, quantity: 1 };
+      newCartItems[i] = { ...newCartItems[i], itemIndex: index, quantity: 1 };
       setCartItems(newCartItems);
     }
   };
@@ -60,12 +60,11 @@ function App() {
   }
 
   return (
-    <BrowserRouter basename="/Shopping-Cart-Project/">
+    <BrowserRouter basename="/">
       <Navbar cartCount={cartItems.length} handleMobileClick={openMobileMenu} />
       <Switch>
-        <Route exact path='/' component={Shop} />
-        <Route path='/shop' render={(props) => <Shop {...props}
-          handleClick={addCartItem} />} />
+        <Route exact path={['/', '/shop']} render={(props) => <Shop {...props}
+          handleClick={addCartItem} />} /> 
         <Route path='/cart' render={(props) => <Cart
           cartItems={cartItems} handleRemove={removeCartItem} handleIncrement={increment}
           handleDecrement={decrement} />} />
